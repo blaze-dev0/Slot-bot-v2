@@ -108,7 +108,8 @@ const {
           default:
             return message.channel.send(`invalid argument provided \nuse correct argument example: -create @mafia(user) 1(category) 1d/1m(time day month) mafia slot(slot name)`);
         }
-  
+
+        if (cate == "None") return await message.channel.send("you need to set category use: -setslot 87287827382(categoryid) 1/2/3(number)")  
   
   
   
