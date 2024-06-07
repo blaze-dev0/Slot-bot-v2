@@ -32,7 +32,7 @@ const cf = require('./other/config')
 client.commands = new Collection();
 client.aliases = new Collection()
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb+srv://test:test@cluster0.e1rubfc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(console.log(`\x1b[34m%s\x1b[0m`,'Connected to Mongodb.'));
+mongoose.connect("Your Mongodb url").then(console.log(`\x1b[34m%s\x1b[0m`,'Connected to Mongodb.'));
 
 
 
@@ -99,4 +99,4 @@ end(client,cf)
 
 
 
-client.login("MTI0ODEwOTc3NzE4MDAzMzA5Ng.GlBaZU.RlONkSm66xE2E4TUeISoQu9cowLBZq4ZDYpJyw")
+client.login("Your Bot TOken")
