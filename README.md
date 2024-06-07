@@ -1,7 +1,12 @@
 # Slot-bot-v2
 With Multiple Category Support 
+
+
+# Features
+
 Log Channels 
 
+Ping Checker
 
 
 
