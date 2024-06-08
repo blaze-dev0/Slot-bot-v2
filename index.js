@@ -22,7 +22,15 @@ const end = require('./other/end')
 const cf = require('./other/config')
 
 
+if (cf.config.guild_x=="None" || cf.config.role_x=="None" || cf.config.staff_x=="None"  || cf.config.slotrule=="None") {
+  
+  console.log('you need to setup config file first')
 
+  console.log(`./other/config.js Here You go for setup`)
+  return
+
+
+}
 
 
 
