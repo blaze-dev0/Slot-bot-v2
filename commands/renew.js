@@ -50,6 +50,12 @@ const {
   
   
         if (!message.member.roles.cache.has(staff.id)) {
+          const perm = new EmbedBuilder()
+          .addFields({name:"__Missing Permission__",value: "You need staff role to use this"})
+          .setThumbnail(`${message.guild.iconURL() || "https://cdn.discordapp.com/avatars/59434350/5713257311f4bcf376aa13ea1cf76c.png?size=4096"}`)
+          .setColor(`Red`)
+
+          await message.channel.send({embeds: [perm]})
   
           return
         }
