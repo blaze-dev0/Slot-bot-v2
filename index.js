@@ -25,7 +25,7 @@ const cf = require('./other/config')
 //guild config moved in ""./other/config.js" there you can set
 
 
-if (cf.config.guild_x=="None" || cf.config.role_x=="None" || cf.config.staff_x=="None"  || cf.config.slotrule=="None") {
+if (!cf.config.guild_x || !cf.config.role_x || !cf.config.staff_x  || !cf.config.slotrule) {
   
   console.log('you need to setup config file first')
 
