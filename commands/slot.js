@@ -28,7 +28,7 @@ const {
           .setColor(`Red`)
   
   
-        if (args.length < 4) {
+        if (args.length < 3) {
           return await message.channel.send({
             embeds: [ia]
           });
