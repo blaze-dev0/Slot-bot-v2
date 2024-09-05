@@ -87,50 +87,44 @@ const ping = async (message) => {
         }
         await p.findOneAndUpdate({ channel: channel.id }, { ping: parseInt(st.ping) + 1 })
 
-        switch (st.ping) {
-          case "0":
+
+        if (st.ping < st.maxping) {
+          message.channel.send(`${st.ping + 1} / ${st.maxping}`)
+        } else {
+
+          message.channel.send(`${st.ping + 1} / ${st.maxping}`)
+          message.channel.send("slot has been revoked")
+          let logchannel = await message.guild.channels.fetch(cf.config.logchannel)
+          let staff = await message.guild.roles.fetch(cf.config.staff_x)
+          if (!staff) {
+            staff = undefined
+          }
+          if (logchannel) {
 
 
-            message.channel.send("1/3")
-            return
-          case "1":
 
-            message.channel.send("2/3")
-            return
-          case "2":
-            message.channel.send("3/3")
-            return
-          default:
-            message.channel.send("4/3")
-            message.channel.send("slot has been revoked")
-            let logchannel = await message.guild.channels.fetch(cf.config.logchannel)
-            let staff = await message.guild.roles.fetch(cf.config.staff_x)
-            if (!staff) {
-              staff = undefined
+            await logchannel.send(`Channel id: ${message.channel.id}\nChannel Name: ${message.channel.name}\nUser id: ${message.member.id}\nUser Name: ${message.member.user.username}\n\nSlot Has been Revoked Due To Everyone Ping\n${staff}`)
+
+          }
+
+
+
+
+
+          channel.permissionOverwrites.set([
+            {
+              id: message.guild.id,
+              deny: [PermissionsBitField.Flags.SendMessages]
+            },
+            {
+              id: message.member.id,
+              deny: [PermissionsBitField.Flags.SendMessages]
             }
-            if (logchannel) {
+          ])
 
-
-              await logchannel.send(`Channel id: ${message.channel.id}\nChannel Name: ${message.channel.name}\nUser id: ${message.member.id}\nUser Name: ${message.member.user.username}\n\nSlot Has been Revoked Due To Everyone Ping\n${staff}`)
-
-            }
-
-
-
-
-            channel.permissionOverwrites.set([
-              {
-                id: message.guild.id,
-                deny: [PermissionsBitField.Flags.SendMessages]
-              },
-              {
-                id: message.member.id,
-                deny: [PermissionsBitField.Flags.SendMessages]
-              }
-            ])
         }
 
-
+      
 
 
       }
