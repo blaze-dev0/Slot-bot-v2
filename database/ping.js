@@ -6,7 +6,8 @@ const ping= new Schema({
     guild: String,
     channel: String,
     userid: String,
-    ping: String,
+    ping: Number,
+    maxping: Number,
     time: String,
 
 })
