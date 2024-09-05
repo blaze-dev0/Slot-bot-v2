@@ -22,13 +22,13 @@ const {
         const ia = new EmbedBuilder()
           .addFields({
             name: `__invalid argument provided__`,
-            value: `use correct argument example:\n-create @mafia(user) 1(category) 1d/1m(time day month) mafia slot(slot name)`
+            value: `use correct argument example:\n-create @mafia(user) 1(category) 1d/1m(time day month) 3(setusermaxping) mafia slot(slot name)`
           })
           .setThumbnail(`${message.guild.iconURL() || "https://cdn.discordapp.com/avatars/59434350/5713257311f4bcf376aa13ea1cf76c.png?size=4096"}`)
           .setColor(`Red`)
   
   
-        if (args.length < 3) {
+        if (args.length < 4) {
           return await message.channel.send({
             embeds: [ia]
           });
@@ -168,7 +168,7 @@ const {
   
         console.log(categoryChannel.id)
         let newchannel = await message.guild.channels.create({
-          name: args.slice(3).join(' ') || username,
+          name: args.slice(4).join(' ') || username,
           type: 0,
           parent: categoryChannel.id,
           permissionOverwrites: [{
@@ -192,7 +192,8 @@ const {
           guild: message.guild.id,
           channel: newchannel.id,
           userid: member.id,
-          ping: "0",
+          ping: 0,
+          maxping: args[3] || 3,
           time: d.toLocaleString()
         }).save()
   
