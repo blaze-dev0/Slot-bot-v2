@@ -44,7 +44,7 @@ if (!cf.config.guild_x || !cf.config.role_x || !cf.config.staff_x  || !cf.config
 client.commands = new Collection();
 client.aliases = new Collection()
 mongoose.set("strictQuery", false);
-mongoose.connect("Mongo Url").then(console.log(`\x1b[34m%s\x1b[0m`,'Connected to Mongodb.')).catch((e)=> {
+mongoose.connect("Mongo Url").catch((e)=> {
   console.log(e)
   process.exit()
 
